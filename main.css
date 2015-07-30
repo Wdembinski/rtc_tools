@@ -1,0 +1,42 @@
+/*#chat-box,*/
+/*#game-box,*/
+.template,
+#join-box,
+#start-box {
+  display: none;
+}
+
+
+
+body.join #join-box,
+body.game #game-box,
+body{
+	width:100%;	
+}
+body.start #start-box {
+  display: block;
+}
+
+/* Only invisible during start */
+body.start #chat-box {
+  display: none;
+}
+
+body .host-only {
+  display: none;
+}
+body.host .host-only {
+  display: block;
+}
+
+#chat-box,
+#join-box,
+#game-box {
+  float: left;
+  width 100px;
+}
+
+.main_container{
+	margin: auto;
+  max-width: 200px;
+}
