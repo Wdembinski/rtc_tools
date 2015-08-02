@@ -1,6 +1,6 @@
 
 
-  function rtc_tools_chat(rtc_obj,chat_window){
+  function RTC_Tools(rtc_obj,chat_window){
 
     
     //might want to come up with our own 'default for handling channel id etc'
@@ -20,44 +20,52 @@
     }
     else{
       return {
-        update_personal_chat:function(message_obj){
+        alert:function(message_obj){
           chat_window.append(
-            "<div class='row msg_container base_sent'>\
-              <div class='col-md-10 col-xs-10'>\
-                  <div class='messages msg_sent'>\
-                      <p>" +
-                       message_obj.message
-                      + "</p>\
-                      <time datetime='2009-11-13T20:00'>Timothy • 51 min</time>\
-                  </div>\
-              </div>\
-              <div class='col-md-2 col-xs-2 avatar'>\
-                  <img src='http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg' class=' img-responsive '>\
-              </div>\
-            </div>"
+            // alert div
           )},
         receive_message:function(message_obj){
+          cl(message_obj)
           chat_window.append(
-            "<div class='row msg_container base_receive'>\
-              <div class='col-md-10 col-xs-10'>\
-                  <div class='messages msg_receive'>\
-                      <p>" +
-                      message_obj.message.message
-                      + "</p>\
-                      <time datetime='2009-11-13T20:00'>Timothy • 51 min</time>\
-                  </div>\
-              </div>\
-              <div class='col-md-2 col-xs-2 avatar'>\
-                  <img src='http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg' class=' img-responsive '>\
-              </div>\
-            </div>"
+
+
+          "<li class='chat_box_entry chat_box_received_message'>\
+            <hr>\
+            <p class='message_timestamp'>\
+              June 23rd, 2:26pm\
+            </p>\
+            <a href='' class='chat_box_user_icon'>\
+              <i class='fa fa-user fa-3'></i>\
+            </a>\
+            <p class='chat_box_message'>"
+                + message_obj.message.message + // <<-------------------The message goes here
+
+            "</p>\
+          </li>"
+            
           )},
-        send_message:function(message_string){
-          this.update_personal_chat(message_string)
+        send_message:function(message){
+          console.log(message)
+          chat_window.append(
+
+
+            "<li class='chat_box_entry chat_box_sent_message'>\
+              <hr>\
+              <p class='message_timestamp'>\
+                June 23rd, 2:26pm\
+              </p>\
+              <a href='' class='chat_box_user_icon'>\
+                <i class='fa fa-user fa-3'></i>\
+              </a>\
+              <p class='chat_box_message'>" 
+                      + message.message + // <<-------------------The message goes here
+               "</p>\
+            </li>"
+          );
           rtc_obj.sendCustomMessage({
               userOnline: true,
               userid: MODERATOR_ID,
-              message:message_string
+              message:message
           });
         },
         open:function(string){ //new room
@@ -101,7 +109,7 @@
 
 
 
-  var rtc_tools = new rtc_tools_chat(connection,$("#rtc_tools_chat"))
+  var rtc_tools = new RTC_Tools(connection,$(".chat_box_content_list")) //css class... not id or whatever
   console.log(rtc_tools)
 
   connection.onCustomMessage = rtc_tools.receive_message //BAD SEPARATION OF CONCERNS
@@ -117,19 +125,28 @@
   });
 
 
-  $('#btn-chat').click(function(e) {
-    txt_box = $('#btn-input')
+  $('.message_box').keypress(function(e) {
+    txt_box = $('.message_box')
     console.log(txt_box)
     console.log("trying to send", txt_box.val())
     console.log(rtc_tools)
-    rtc_tools.send_message({
-        userOnline: true,
-        userid: MODERATOR_ID,
-        message:txt_box.val()
-    });
-    txt_box.val('')
-  });
 
+    if(e.which == 13) {
+      rtc_tools.send_message({
+
+          userOnline: true,
+          userid: MODERATOR_ID,
+          message: txt_box.val() 
+
+      });
+      txt_box.val('')
+    }
+
+
+
+
+
+  });
 
 
 

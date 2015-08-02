@@ -12,9 +12,6 @@ btnOpenSmallRoom.onclick = function() {
     firebase.set(smallRoomId);
 };
 
-
-
-
 firebase.once('value', function(data) {
     var isSmallRoomPresent = data.val() != null;
     if (!isSmallRoomPresent) {
