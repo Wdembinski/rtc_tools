@@ -1,27 +1,26 @@
-.chat_box_dock {
+.collapsed{
+    display:none !important; 
+}
 
+ul.chat_box_dock{
+    margin:0 0 0 0;
+    list-style: none;
+    padding: 0 0 0 3%;
     position: fixed;
     bottom:0px;
     display: block;
     font-family: helvetica, arial, sans-serif;
     width: 75%;
-}
-.chat_box_dock ul{
-    list-style: none;
-    padding: 0 0 0 3%;
+    /*width: 100%;*/
 
 }
-.chat_box_dock hr{
+ul.chat_box_dock hr{
     width: 100%;
     border-color:#DCDCDC;
     margin:3px 0 3px 0;
 }
 
-.chat_box_dock > ul.chat_box_list{
-    width: 100%;
-}
-
-.chat_box_dock > ul.chat_box_list > li.chat_box{
+ul.chat_box_dock > li.chat_box{
     float: right;
     margin: 0 1% 0 0;
     width: 260px;
@@ -31,7 +30,7 @@
     box-shadow: rgb(0, 0, 0) 0px 1px 4px 1px;
     border-style: solid;
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title{
+ul.chat_box_dock > li.chat_box > div.chat_box_title{
     margin: 0px 0px 0 0px;
     padding: 1%;
     height: 30px;
@@ -50,45 +49,45 @@
     border-image-width: 1;
 
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title a{
+ul.chat_box_dock > li.chat_box > div.chat_box_title a{
 
 
 
 }
 
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title > a{
+ul.chat_box_dock > li.chat_box > div.chat_box_title > a{
     color:#717171;
     margin: 1% 1% 1% 1% 
 }
 
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title > a.chat_box_icon{
+ul.chat_box_dock > li.chat_box > div.chat_box_title > a.chat_box_icon{
     float: left;
 
 
 }
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title > a.chat_box_username{
+ul.chat_box_dock > li.chat_box > div.chat_box_title > a.chat_box_username{
     float: left;
 
 
 
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title > a.chat_box_username > h4{
+ul.chat_box_dock > li.chat_box > div.chat_box_title > a.chat_box_username {
     margin: 0px 0px 0px 3%;
     font-weight: bold;
     color: #E34D3C;
 
 }
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title > a.chat_box_close{
+ul.chat_box_dock > li.chat_box > div.chat_box_title > a.chat_box_close{
 
 
     float: right;
 
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title > a.chat_box_minimize{
+ul.chat_box_dock > li.chat_box > div.chat_box_title > a.chat_box_minimize{
     float: right;
 
 
@@ -96,7 +95,7 @@
 }
 
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_title > a.chat_box_max{
+ul.chat_box_dock > li.chat_box > div.chat_box_title > a.chat_box_max{
 
     float: right;
     display: none;
@@ -104,26 +103,27 @@
 
 }
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_content{
+ul.chat_box_dock > li.chat_box > div.chat_box_content{
     overflow-x: hidden;
     overflow-y: scroll;
     display: block;
     max-height: 230px;
+    min-height: 200px;
     width: 100%;
     background-color: #e9eaed;
     font-size: 12px;
 }
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_content > ul.chat_box_content_list{
+ul.chat_box_dock > li.chat_box > div.chat_box_content > ul.chat_box_content_list{
     padding: 0 2% 0 2%;
     width: 100%;
     list-style: none;
 }
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_entry{
+ul.chat_box_dock > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_entry{
     width: 100%;
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_entry .message_timestamp{
+ul.chat_box_dock > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_entry .message_timestamp{
 
         margin: auto;
         width: 100%;
@@ -134,11 +134,11 @@
         font-weight: bold;
 }
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_sent_message > *{
+ul.chat_box_dock > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_sent_message > *{
     float: right;
 
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_received_message > *{
+ul.chat_box_dock > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_received_message > *{
     float: left;
 
 }
@@ -146,53 +146,57 @@
 
 
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_entry > a.chat_box_user_icon{
+ul.chat_box_dock > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_entry > a.chat_box_user_icon{
 
     margin: 0 1px 0 1px;
 
 
 }
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_entry > p.chat_box_message{
-
-
-
-}
-
-.chat_box_dock > ul.chat_box_list > li.chat_box > .chat_box_form{
-
+ul.chat_box_dock > li.chat_box > div.chat_box_content > ul.chat_box_content_list > li.chat_box_entry > p.chat_box_message{
+    width: 100%;
 
 
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box div.form *{
+
+ul.chat_box_dock > li.chat_box > .chat_box_form{
+    max-height: 6em;
+    overflow-y: scroll;
+
+
+}
+ul.chat_box_dock > li.chat_box div.form *{
 
     margin: 0 0 0 0;
     padding:0 0 0 0;
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box div.form{
+ul.chat_box_dock > li.chat_box div.form{
     color: black;
     height: 100%;
     margin:0 0 0 0;
     background-color:#e9eaed;
 
 }
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_form >{
+ul.chat_box_dock > li.chat_box > div.chat_box_form >{
     overflow-y:scroll;
     overflow-x:none;
 
 }
 
-.chat_box_dock > ul.chat_box_list > li.chat_box > div.chat_box_form > textarea{
-    
+ul.chat_box_dock > li.chat_box > div.chat_box_form > textarea{
     border-width: 0px;
-    padding-left: 1%;
+    border-top-color: #6F6F6F;
+    border-top-width: 2px;
+    border-style: solid;
+    outline:none;
+    /*min-height: 2.0em;*/
+    padding:0 0 0 1%;
     width:100%;
     font-family: helvetica, arial, sans-serif;
     font-size: 100%;
     letter-spacing: normal;
     line-height: normal;
     max-width: 100%;
-    min-height: 1.5em;
     overflow-x: hidden;
     overflow-y: hidden;
     text-rendering: auto;
